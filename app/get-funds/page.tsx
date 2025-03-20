@@ -4,6 +4,7 @@ import { Badge } from "../../components/ui/badge"
 import { Button } from "../../components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../../components/ui/card"
 import { DollarSign, Globe, Rocket } from "lucide-react"
+import Image from "next/image"
 
 // Entrepreneurs data
 const entrepreneurs = [
@@ -11,7 +12,7 @@ const entrepreneurs = [
     id: 1,
     name: "EcoTech Solutions",
     founder: "Maya Rodriguez",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/startups/startup1.jpg",
     description: "Developing biodegradable packaging solutions for the food industry to reduce plastic waste.",
     seeking: "$500K",
     stage: "Seed",
@@ -23,7 +24,7 @@ const entrepreneurs = [
     id: 2,
     name: "MediConnect",
     founder: "Dr. James Chen",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/startups/startup2.jpg",
     description: "AI-powered telemedicine platform connecting patients with specialists in underserved areas.",
     seeking: "$1.2M",
     stage: "Series A",
@@ -35,7 +36,7 @@ const entrepreneurs = [
     id: 3,
     name: "UrbanFarm",
     founder: "Sophia Kim",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/startups/startup3.jpg",
     description: "Vertical farming technology for urban environments, using 95% less water than traditional farming.",
     seeking: "$750K",
     stage: "Seed",
@@ -47,7 +48,7 @@ const entrepreneurs = [
     id: 4,
     name: "CyberShield",
     founder: "Alex Johnson",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/startups/startup4.jpg",
     description: "Cybersecurity solution for small businesses using machine learning to detect and prevent threats.",
     seeking: "$2M",
     stage: "Series A",
@@ -59,7 +60,7 @@ const entrepreneurs = [
     id: 5,
     name: "LearnLoop",
     founder: "Priya Patel",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/startups/startup5.jpg",
     description: "Adaptive learning platform that personalizes education content based on student performance.",
     seeking: "$850K",
     stage: "Seed",
@@ -71,7 +72,7 @@ const entrepreneurs = [
     id: 6,
     name: "FitTech",
     founder: "Marcus Williams",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/startups/startup6.jpg",
     description: "Wearable technology that provides real-time feedback on workout form and performance.",
     seeking: "$1.5M",
     stage: "Series A",
@@ -83,7 +84,7 @@ const entrepreneurs = [
     id: 7,
     name: "GreenRide",
     founder: "Emma Clark",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/startups/startup7.jpg",
     description: "Electric scooter sharing platform with solar-powered charging stations.",
     seeking: "$1.8M",
     stage: "Series A",
@@ -95,7 +96,7 @@ const entrepreneurs = [
     id: 8,
     name: "SupplyChainAI",
     founder: "David Lee",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/startups/startup8.jpg",
     description: "AI-powered supply chain optimization platform for manufacturing businesses.",
     seeking: "$3M",
     stage: "Series B",
@@ -107,7 +108,7 @@ const entrepreneurs = [
     id: 9,
     name: "PetPal",
     founder: "Olivia Martinez",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/startups/startup9.jpg",
     description: "On-demand pet care services platform connecting pet owners with verified caregivers.",
     seeking: "$600K",
     stage: "Seed",
@@ -119,7 +120,7 @@ const entrepreneurs = [
     id: 10,
     name: "BlockSecure",
     founder: "Ryan Thompson",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/startups/startup10.jpg",
     description: "Blockchain-based identity verification system for financial institutions.",
     seeking: "$2.5M",
     stage: "Series A",
@@ -131,7 +132,7 @@ const entrepreneurs = [
     id: 11,
     name: "AquaSense",
     founder: "Liam Wilson",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/startups/startup11.jpg",
     description: "IoT water quality monitoring system for municipal water supplies.",
     seeking: "$1M",
     stage: "Seed",
@@ -143,7 +144,7 @@ const entrepreneurs = [
     id: 12,
     name: "RetailAI",
     founder: "Zoe Nguyen",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/startups/startup12.jpg",
     description: "AI-powered inventory management and demand forecasting for retail businesses.",
     seeking: "$1.7M",
     stage: "Series A",
@@ -179,10 +180,12 @@ export default function GetFunds() {
                   className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02] border-[#FF6B00]/20"
                 >
                   <div className="aspect-video relative">
-                    <img
-                      src={startup.image || "/placeholder.svg"}
+                    <Image
+                      src={startup.image || "/startups/placeholder.jpg"}
                       alt={startup.name}
                       className="w-full h-full object-cover"
+                      width={600}
+                      height={400}
                     />
                     <div className="absolute top-2 right-2">
                       <Badge className="bg-[#FF6B00] text-white font-medium">{startup.stage}</Badge>

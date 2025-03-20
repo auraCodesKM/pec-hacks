@@ -7,13 +7,14 @@ import { motion, type PanInfo, useAnimation, useMotionValue, useTransform } from
 import { Bookmark, BookmarkCheck, Briefcase, ChevronLeft, ChevronRight, MapPin, X } from "lucide-react"
 import { Button } from "../../components/ui/button"
 import { Badge } from "../../components/ui/badge"
+import Image from "next/image"
 
 // Mentor data
 const mentors = [
   {
     id: 1,
     name: "Sarah Johnson",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/mentors/mentor1.jpg",
     expertise: "Marketing",
     bio: "Former CMO at TechGiant with 15+ years of experience in digital marketing and brand strategy.",
     availability: "Available",
@@ -23,7 +24,7 @@ const mentors = [
   {
     id: 2,
     name: "Michael Chen",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/mentors/mentor2.jpg",
     expertise: "Finance",
     bio: "Venture capitalist with $50M+ investments in early-stage startups. Previously investment banker at Goldman Sachs.",
     availability: "Limited",
@@ -33,7 +34,7 @@ const mentors = [
   {
     id: 3,
     name: "Priya Patel",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/mentors/mentor3.jpg",
     expertise: "Product Design",
     bio: "Lead designer at Apple for 8 years. Specializes in UX/UI for consumer products and design thinking.",
     availability: "Available",
@@ -43,7 +44,7 @@ const mentors = [
   {
     id: 4,
     name: "James Wilson",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/mentors/mentor4.jpg",
     expertise: "Technology",
     bio: "CTO of three successful startups. Expert in scaling engineering teams and cloud architecture.",
     availability: "Not Taking Requests",
@@ -53,7 +54,7 @@ const mentors = [
   {
     id: 5,
     name: "Elena Rodriguez",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/mentors/mentor5.jpg",
     expertise: "Sales",
     bio: "Built and led sales teams at Salesforce. Specializes in B2B enterprise sales strategies.",
     availability: "Available",
@@ -63,7 +64,7 @@ const mentors = [
   {
     id: 6,
     name: "David Kim",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/mentors/mentor6.jpg",
     expertise: "Growth",
     bio: "Growth hacker who helped scale 5 startups to unicorn status. Data-driven approach to user acquisition.",
     availability: "Limited",
@@ -73,7 +74,7 @@ const mentors = [
   {
     id: 7,
     name: "Olivia Thompson",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/mentors/mentor7.jpg",
     expertise: "Legal",
     bio: "Startup attorney specializing in fundraising, IP protection, and regulatory compliance.",
     availability: "Available",
@@ -83,7 +84,7 @@ const mentors = [
   {
     id: 8,
     name: "Raj Mehta",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/mentors/mentor8.jpg",
     expertise: "Operations",
     bio: "COO who scaled operations from 10 to 1000 employees. Expert in process optimization and team building.",
     availability: "Not Taking Requests",
@@ -93,7 +94,7 @@ const mentors = [
   {
     id: 9,
     name: "Sophia Lee",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/mentors/mentor9.jpg",
     expertise: "Fundraising",
     bio: "Helped startups raise over $200M in combined funding. Specializes in pitch deck creation and investor relations.",
     availability: "Available",
@@ -103,7 +104,7 @@ const mentors = [
   {
     id: 10,
     name: "Marcus Johnson",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/mentors/mentor10.jpg",
     expertise: "AI/ML",
     bio: "PhD in Machine Learning. Built AI products at Google and two AI startups (one acquired).",
     availability: "Limited",
@@ -113,7 +114,7 @@ const mentors = [
   {
     id: 11,
     name: "Aisha Williams",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/mentors/mentor11.jpg",
     expertise: "Customer Success",
     bio: "Reduced churn by 40% at SaaS companies. Expert in customer journey mapping and retention strategies.",
     availability: "Available",
@@ -123,7 +124,7 @@ const mentors = [
   {
     id: 12,
     name: "Thomas Schmidt",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/mentors/mentor12.jpg",
     expertise: "Hardware",
     bio: "Hardware engineer who launched 3 successful Kickstarter campaigns. Expert in prototyping and manufacturing.",
     availability: "Not Taking Requests",
@@ -133,7 +134,7 @@ const mentors = [
   {
     id: 13,
     name: "Zoe Martinez",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/mentors/mentor13.jpg",
     expertise: "Content Strategy",
     bio: "Content strategist who built audiences of 1M+ followers. Specializes in storytelling and brand voice.",
     availability: "Available",
@@ -143,7 +144,7 @@ const mentors = [
   {
     id: 14,
     name: "Alex Nguyen",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/mentors/mentor14.jpg",
     expertise: "Data Science",
     bio: "Data scientist who helped companies make data-driven decisions. Expert in analytics and visualization.",
     availability: "Limited",
@@ -153,7 +154,7 @@ const mentors = [
   {
     id: 15,
     name: "Natalie Wong",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/mentors/mentor15.jpg",
     expertise: "HR & Culture",
     bio: "Built HR functions from scratch at multiple startups. Specializes in culture development and talent acquisition.",
     availability: "Available",
@@ -163,7 +164,7 @@ const mentors = [
   {
     id: 16,
     name: "Carlos Diaz",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/mentors/mentor16.jpg",
     expertise: "International Expansion",
     bio: "Led market entry into 20+ countries. Expert in localization and international business development.",
     availability: "Not Taking Requests",
@@ -173,7 +174,7 @@ const mentors = [
   {
     id: 17,
     name: "Emma Clark",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/mentors/mentor17.jpg",
     expertise: "Social Impact",
     bio: "Founded two social enterprises. Specializes in sustainable business models and impact measurement.",
     availability: "Available",
@@ -183,7 +184,7 @@ const mentors = [
   {
     id: 18,
     name: "Jason Park",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/mentors/mentor18.jpg",
     expertise: "Blockchain",
     bio: "Blockchain developer who launched several successful DeFi projects. Expert in smart contracts and Web3.",
     availability: "Limited",
@@ -193,7 +194,7 @@ const mentors = [
   {
     id: 19,
     name: "Leila Abadi",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/mentors/mentor19.jpg",
     expertise: "UX Research",
     bio: "UX researcher who conducted 500+ user interviews. Specializes in user-centered design and usability testing.",
     availability: "Available",
@@ -203,7 +204,7 @@ const mentors = [
   {
     id: 20,
     name: "Ryan O'Connor",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/mentors/mentor20.jpg",
     expertise: "E-commerce",
     bio: "Built and sold two e-commerce businesses. Expert in DTC strategy, logistics, and conversion optimization.",
     availability: "Not Taking Requests",
@@ -349,10 +350,12 @@ export default function Connect() {
                 >
                   <div className="w-full h-full bg-card rounded-xl overflow-hidden shadow-xl border border-border flex flex-col">
                     <div className="relative h-1/2 bg-muted">
-                      <img
-                        src={currentMentor.image || "/placeholder.svg"}
+                      <Image
+                        src={currentMentor.image || "/mentors/placeholder.jpg"}
                         alt={currentMentor.name}
                         className="w-full h-full object-cover"
+                        width={400}
+                        height={300}
                       />
                       <div className="absolute top-4 right-4">
                         <Button
@@ -474,10 +477,12 @@ export default function Connect() {
                           key={mentor.id}
                           className="bg-card rounded-lg shadow p-4 flex items-center space-x-3 border border-border"
                         >
-                          <img
-                            src={mentor.image || "/placeholder.svg"}
+                          <Image
+                            src={mentor.image || "/mentors/placeholder.jpg"}
                             alt={mentor.name}
                             className="w-12 h-12 rounded-full object-cover"
+                            width={48}
+                            height={48}
                           />
                           <div>
                             <h4 className="font-medium">{mentor.name}</h4>
