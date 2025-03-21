@@ -10,6 +10,15 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+  const links = [
+    { href: "/", label: "Home" },
+    { href: "/get-funds", label: "Get Funds" },
+    { href: "/ai-cofounder", label: "AI Co-Founder" },
+    { href: "/connect", label: "Connect" },
+    { href: "/xhub", label: "XHub" },
+    { href: "/about", label: "About" },
+  ];
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
@@ -23,18 +32,15 @@ export function Navbar() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          <Link href="/" className="text-sm font-medium hover:text-[#FF6B00] transition-colors">
-            Home
-          </Link>
-          <Link href="/about" className="text-sm font-medium hover:text-[#FF6B00] transition-colors">
-            About
-          </Link>
-          <Link href="/connect" className="text-sm font-medium hover:text-[#FF6B00] transition-colors">
-            Connect
-          </Link>
-          <Link href="/get-funds" className="text-sm font-medium hover:text-[#FF6B00] transition-colors">
-            Get Funds
-          </Link>
+          {links.map((link) => (
+            <Link 
+              key={link.href}
+              href={link.href} 
+              className="text-sm font-medium hover:text-[#FF6B00] transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
@@ -67,34 +73,16 @@ export function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden py-4 px-6 space-y-4 bg-background border-b">
           <nav className="flex flex-col space-y-4">
-            <Link
-              href="/"
-              className="text-sm font-medium hover:text-[#FF6B00] transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="text-sm font-medium hover:text-[#FF6B00] transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              href="/connect"
-              className="text-sm font-medium hover:text-[#FF6B00] transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Connect
-            </Link>
-            <Link
-              href="/get-funds"
-              className="text-sm font-medium hover:text-[#FF6B00] transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Get Funds
-            </Link>
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium hover:text-[#FF6B00] transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
           <div className="flex items-center gap-4 pt-2">
             <DropdownMenu>

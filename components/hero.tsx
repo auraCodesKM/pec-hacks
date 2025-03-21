@@ -3,6 +3,7 @@
 import { Button } from "./ui/button"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import Image from "next/image"
 
 export function Hero() {
   return (
@@ -43,22 +44,14 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px]">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#FF6B00]/20 to-[#FF9248]/20 rounded-lg flex items-center justify-center">
-                <div className="w-3/4 h-3/4 bg-gradient-to-br from-[#FF6B00] to-[#FF9248] rounded-lg opacity-20 blur-xl absolute"></div>
-                <div className="relative z-10 p-8">
-                  <div className="bg-background/80 backdrop-blur-sm rounded-lg p-6 shadow-xl border border-[#FF6B00]/20">
-                    <div className="space-y-4">
-                      <div className="h-2 w-20 bg-[#FF6B00] rounded-full"></div>
-                      <div className="h-2 w-32 bg-muted rounded-full"></div>
-                      <div className="h-2 w-24 bg-muted rounded-full"></div>
-                      <div className="h-8 w-full bg-[#FF6B00]/10 rounded-md mt-4"></div>
-                      <div className="grid grid-cols-2 gap-2">
-                        <div className="h-20 bg-muted rounded-md"></div>
-                        <div className="h-20 bg-muted rounded-md"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="absolute inset-0 rounded-lg overflow-hidden">
+                <Image 
+                  src="/premium_photo-1684769161054-2fa9a998dcb6.jpeg" 
+                  alt="Startup growth concept"
+                  fill
+                  className="object-cover rounded-lg"
+                  priority
+                />
               </div>
             </div>
           </motion.div>
